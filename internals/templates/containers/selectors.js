@@ -1,3 +1,8 @@
+/*****************************
+ * Author : <%= username %>
+ * Created on : <%= date %>
+ *****************************/
+
 import { createSelector } from 'reselect';
 
 

@@ -1,3 +1,8 @@
+/*****************************
+ * Author : <%= username %>
+ * Created on : <%= date %>
+ *****************************/
+
 import { put, call, takeLatest } from 'redux-saga/effects';
 
 
