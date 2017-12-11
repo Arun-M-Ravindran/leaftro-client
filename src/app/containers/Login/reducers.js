@@ -3,6 +3,7 @@ import { fromJS } from 'immutable';
 import {
   LOGIN_REQUEST,
   LOGIN_FAILURE,
+  LOGIN_SUCCESS,
   NO_CHANGE,
   CHECK_IS_AUTHENTICATED,
   AUTHENTICATED
@@ -30,6 +31,11 @@ export default function loginReducer(state = initialState, action) {
         .set('isRequesting', false)
         .set('isError', true)
 
+    case LOGIN_SUCCESS:
+      return state
+        .set('isRequesting', false)
+        .set('isSuccess', true)
+
     case CHECK_IS_AUTHENTICATED:
       return state
         .set('isChecking', true)
@@ -37,8 +43,6 @@ export default function loginReducer(state = initialState, action) {
     case AUTHENTICATED:
       return state
         .set('isChecking', false)
-        .set('isRequesting', false)
-        .set('isSuccess', true)
 
     case NO_CHANGE:
       return state

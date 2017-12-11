@@ -1,19 +1,19 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 
 import { LOGIN_REQUEST, CHECK_IS_AUTHENTICATED } from './constants';
-import { loginError, noChange, authenticated } from './actions';
+import { loginError, noChange, authenticated, loginSuccess } from './actions';
 import { loginApi, validateAuthTokenApi } from 'utils/apis';
-import { TOKEN } from 'utils/constants';
 
 
 function* loginFlow(action) {
   try {
 
     const response = yield loginApi.post(action.payload)
+    console.log({response})
 
     window.localStorage.setItem('id_token', response.token);
 
-    yield put(authenticated());
+    yield put(loginSuccess());
 
   } catch (error) {
     console.log({error})
@@ -23,14 +23,14 @@ function* loginFlow(action) {
 
 function* checkAuthFlow(action) {
   try {
+
+    let TOKEN = window.localStorage.getItem('id_token');
+
     if (!TOKEN) throw new Error('No Token!');
-    const response = validateAuthTokenApi.post({ token: TOKEN })
-      .then(response => {
-        if (!response.success) throw new Error('Validation failed.');
-        return response;
-      });
+    const response = yield validateAuthTokenApi.post({ token: TOKEN })
 
     yield put(authenticated())
+
   } catch(error) {
     console.log({error})
     yield put(noChange())

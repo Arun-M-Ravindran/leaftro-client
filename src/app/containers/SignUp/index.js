@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
@@ -33,8 +35,17 @@ class SignUp extends React.Component {
   }
 
   render() {
+
+    const inputField = text => {
+      return (
+        <div></div>
+      );
+    }
+
     return (
-      <div></div>
+      <div className="container">
+        <h1>Sign Up Here!</h1>
+      </div>
     );
   }
 }

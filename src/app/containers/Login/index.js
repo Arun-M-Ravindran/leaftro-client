@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import { Link } from 'react-router-dom';
 import MDSpinner from 'react-md-spinner';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
@@ -36,6 +37,9 @@ class Login extends React.Component {
       email: 'admin@app.com',
       password: 'admin1234'
     }
+
+    this.handleChangeData = this.handleChangeData.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -54,6 +58,7 @@ class Login extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
+    console.log({requestLogin})
     this.props.dispatch(requestLogin(data));
   }
 
@@ -89,10 +94,10 @@ class Login extends React.Component {
         {redirecting()}
         <div className="form" >
           <form>
-            <TextField floatingLabelText="Email" name="email" value={this.state.email} onChange={this.handleChangeData.bind(this)} />
-            <PasswordField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleChangeData.bind(this)} />
-            <FlatButton label={loadingSpinner("login")} onClick={this.handleSubmit.bind(this)} disabled={!(this.state.email && this.state.password)} style={styles.button} />
-            <p className="message">Not registered? <a href="#" >Create an account</a></p>
+            <TextField floatingLabelText="Email" name="email" value={this.state.email} onChange={this.handleChangeData} />
+            <PasswordField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleChangeData} />
+            <FlatButton label={loadingSpinner("login")} onClick={this.handleSubmit} disabled={!(this.state.email && this.state.password)} style={styles.button} />
+            <p className="message">Not registered? <Link to="/signUp" >Create an account</Link></p>
           </form>
         </div>
       </div>

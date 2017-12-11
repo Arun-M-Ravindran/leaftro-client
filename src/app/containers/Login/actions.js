@@ -23,6 +23,13 @@ export function loginError(payload) {
   };
 }
 
+export function loginSuccess(payload) {
+  return {
+    type: LOGIN_SUCCESS,
+    payload
+  }
+}
+
 export function noChange() {
   return {
     type: NO_CHANGE
@@ -30,7 +37,7 @@ export function noChange() {
 }
 
 export function authenticated() {
-  // browserHistory.push('/');
+  browserHistory.push('/dashboard');
   return {
     type: AUTHENTICATED
   }

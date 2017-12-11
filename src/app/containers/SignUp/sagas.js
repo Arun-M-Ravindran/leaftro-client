@@ -5,6 +5,8 @@
 
 import { put, call, takeLatest } from 'redux-saga/effects';
 
+import { SIGN_UP_REQUEST } from './constants';
+
 
 function* signUpFlow (action) {
   try {
@@ -15,6 +17,6 @@ function* signUpFlow (action) {
 }
 
 
-export default function signUpWatcher() {
-  // yield takeLatest(signUpFlow, ACTION)
+export default function* signUpWatcher() {
+  yield takeLatest(SIGN_UP_REQUEST, signUpFlow)
 }

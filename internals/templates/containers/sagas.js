@@ -16,5 +16,5 @@ function* <%= camelCaseName %>Flow (action) {
 
 
 export default function <%= camelCaseName %>Watcher() {
-  // yield takeLatest(<%= camelCaseName %>Flow, ACTION)
+  // yield takeLatest(ACTION, <%= camelCaseName %>Flow)
 }

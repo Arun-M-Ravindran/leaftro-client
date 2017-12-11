@@ -17,6 +17,7 @@ import browserHistory from 'browserHistory';
 
 import Login from 'containers/Login';
 import Accounts from 'containers/Accounts';
+import SignUp from 'containers/SignUp';
 import { makeSelectUser, makeSelectIsChecking, makeSelectIsAuthenticated } from './selectors';
 import saga from './sagas';
 import reducer from './reducers';
@@ -99,6 +100,7 @@ class App extends React.Component {
             <Route exact path="/login"
               render={ () => <Login onLogin={this.props.authenticated} /> }
             />
+            <Route exact path="/signUp" component={SignUp} />
             <Route path="/accounts" component={Accounts} />
           </Switch>
         </div>
