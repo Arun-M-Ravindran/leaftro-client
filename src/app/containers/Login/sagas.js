@@ -11,7 +11,7 @@ function* loginFlow(action) {
     const response = yield loginApi.post(action.payload)
     console.log({response})
 
-    window.localStorage.setItem('id_token', response.token);
+    window.localStorage.setItem('phoenix_token', response.token);
 
     yield put(loginSuccess());
 
@@ -24,7 +24,7 @@ function* loginFlow(action) {
 function* checkAuthFlow(action) {
   try {
 
-    let TOKEN = window.localStorage.getItem('id_token');
+    let TOKEN = window.localStorage.getItem('phoenix_token');
 
     if (!TOKEN) throw new Error('No Token!');
 

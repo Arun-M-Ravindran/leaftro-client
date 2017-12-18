@@ -4,4 +4,4 @@ export const ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount';
 
 export const BASE_URL = 'https://registry-django.herokuapp.com/api/'
 // export const BASE_URL = 'http://127.0.0.1:8000/api/'
-export const TOKEN = window.localStorage.getItem('id_token');
+export const TOKEN = window.localStorage.getItem('phoenix_token');
