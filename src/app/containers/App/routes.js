@@ -9,7 +9,7 @@ import PermIdentity from 'material-ui-icons/PermIdentity';
 import Web from 'material-ui-icons/Web';
 
 
-const data = {
+const navBarRoutes = {
   menus: [
     { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
     { text: 'Accounts', icon: <Web/>, link: '/accounts' },
@@ -18,4 +18,16 @@ const data = {
   ],
 };
 
-export default data;
+const routePaths = {
+  LOGIN: '/login',
+  SIGN_UP: '/signUp',
+  ACCOUNTS_LIST: '/accounts'
+}
+
+const noAuthRoutes = [routePaths.SIGN_UP];
+
+export {
+  navBarRoutes,
+  routePaths,
+  noAuthRoutes
+};

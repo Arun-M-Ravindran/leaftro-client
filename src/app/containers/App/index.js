@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-import NavBarRouteData from './routes';
+import { navBarRoutes, routePaths, noAuthRoutes } from './routes';
 import Header from 'components/Header';
 import LeftDrawer from 'components/LeftDrawer';
 import injectReducer from 'utils/injectReducer';
@@ -38,7 +38,11 @@ class App extends React.Component {
 
   componentWillMount() {
     if (!this.props.isAuthenticated) {
-      this.props.authValidate();
+      if (noAuthRoutes.includes(this.props.history.location.pathname)) {
+        console.log(this.props.history)
+      } else {
+        this.props.authValidate();
+      }
     }
   }
 
@@ -82,7 +86,7 @@ class App extends React.Component {
             />
 
             <LeftDrawer navDrawerOpen={navDrawerOpen}
-              menus={NavBarRouteData.menus}
+              menus={navBarRoutes.menus}
               username="User Admin"
             />
           </div>
@@ -96,11 +100,11 @@ class App extends React.Component {
         {showHeader()}
         <div style={ this.props.isAuthenticated ? styles.container : styles.page }>
           <Switch>
-            <Route exact path="/login"
+            <Route exact path={routePaths.LOGIN}
               render={ () => <Login onLogin={this.props.authenticated} /> }
             />
-            <Route exact path="/signUp" component={SignUp} />
-            <Route path="/accounts" component={Accounts} />
+            <Route exact path={routePaths.SIGN_UP} component={SignUp} />
+            <Route path={routePaths.ACCOUNTS_LIST} component={Accounts} />
           </Switch>
         </div>
       </div>
@@ -148,7 +152,7 @@ export default compose(
     //               handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}/>
 
     //         <LeftDrawer navDrawerOpen={navDrawerOpen}
-    //                     menus={NavBarRouteData.menus}
+    //                     menus={navBarRoutes.menus}
     //                     username="User Admin"/>
 
     //         <div style={styles.container}>

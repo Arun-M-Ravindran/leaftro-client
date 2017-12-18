@@ -21,7 +21,8 @@ class Header extends React.Component {
         position: 'fixed',
         top: 0,
         // backgroundColor: 'rgb(149, 163, 232)',
-        backgroundColor: 'rgb(56, 67, 121)',
+        // backgroundColor: 'rgb(56, 67, 121)',
+        backgroundColor: 'rgb(23, 30, 66)',
         overflow: 'hidden',
         maxHeight: 57
       },

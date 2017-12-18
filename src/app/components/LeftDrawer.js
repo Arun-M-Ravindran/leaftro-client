@@ -18,7 +18,8 @@ const LeftDrawer = (props) => {
       lineHeight: `${spacing.desktopKeylineIncrement}px`,
       fontWeight: typography.fontWeightLight,
       // backgroundColor: 'rgb(149, 163, 232)',
-      backgroundColor: 'rgb(56, 67, 121)',
+      // backgroundColor: 'rgb(56, 67, 121)',
+      backgroundColor: 'rgb(23, 30, 66)',
       paddingLeft: 40,
       height: 56,
     },
@@ -48,6 +49,7 @@ const LeftDrawer = (props) => {
     root: {
       // backgroundColor: 'rgb(123, 133, 206)'
       backgroundColor: 'rgb(70, 76, 121)',
+      // backgroundColor: 'rgb(23, 30, 66)'
     }
   };
 

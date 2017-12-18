@@ -13,7 +13,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import PageBase from 'components/PageBase';
 
 import styles from './styles';
 import saga from './sagas';
@@ -53,18 +52,10 @@ class SignUp extends React.Component {
     const toTitleCase = string => string.charAt(0).toUpperCase() + string.slice(1);
 
     return (
-      <PageBase title="SignUp" navigation="Application / SignUp" >
-        <div>
-          <h1>SignUp Here</h1>
-        </div>
-      </PageBase>
+      <div className="container" >
+        <h1>SignUp Here</h1>
+      </div>
     );
-
-    // return (
-    //   <div>
-    //     <h1>SignUp Here!</h1>
-    //   </div>
-    // );
   }
 }
 
