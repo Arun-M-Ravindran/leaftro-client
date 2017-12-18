@@ -29,7 +29,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      navDrawerOpen: false,
+      navDrawerOpen: true,
       isAuthenticated: false,
       userId: null,
       userData: {}
@@ -52,9 +52,6 @@ class App extends React.Component {
     this.setState({
       navDrawerOpen: !this.state.navDrawerOpen
     });
-  }
-
-  componentDidUpdate() {
   }
 
   render() {

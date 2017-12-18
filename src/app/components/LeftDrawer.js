@@ -46,7 +46,8 @@ const LeftDrawer = (props) => {
       }
     },
     root: {
-      backgroundColor: 'rgb(123, 133, 206)'
+      // backgroundColor: 'rgb(123, 133, 206)'
+      backgroundColor: 'rgb(70, 76, 121)',
     }
   };
 
