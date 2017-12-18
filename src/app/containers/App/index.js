@@ -9,8 +9,8 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import NavBarRouteData from './routes';
-import Header from 'components/common/Header';
-import LeftDrawer from 'components/common/LeftDrawer';
+import Header from 'components/Header';
+import LeftDrawer from 'components/LeftDrawer';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import browserHistory from 'browserHistory';
@@ -38,7 +38,6 @@ class App extends React.Component {
 
   componentWillMount() {
     if (!this.props.isAuthenticated) {
-      console.log({browserHistory});
       this.props.authValidate();
     }
   }
@@ -68,9 +67,12 @@ class App extends React.Component {
         paddingLeft: navDrawerOpen ? paddingLeftDrawerOpen : 0
       },
       container: {
-        margin: '80px 20px 20px 15px',
+        margin: '65px 20px 20px 5px',
         paddingLeft: navDrawerOpen && this.props.width !== SMALL ? paddingLeftDrawerOpen : 0
       },
+      page: {
+        margin: '15px 20px 20px 15px'
+      }
     };
 
     const showHeader = () => {
@@ -95,7 +97,7 @@ class App extends React.Component {
 
       <div>
         {showHeader()}
-        <div style={styles.container}>
+        <div style={ this.props.isAuthenticated ? styles.container : styles.page }>
           <Switch>
             <Route exact path="/login"
               render={ () => <Login onLogin={this.props.authenticated} /> }

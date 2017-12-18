@@ -10,7 +10,7 @@ import ThemeDefault from 'theme-default';
 import '!!style-loader!css-loader!font-awesome/css/font-awesome.css';
 import '!!style-loader!css-loader!bootstrap/dist/css/bootstrap.min.css';
 import '!!style-loader!css-loader!assets/css/stylesheets.css';
-import '!!file-loader!image-webpack-loader!../favicon.png';
+import '!!file-loader!image-webpack-loader!assets/favicon/favicon.ico';
 
 import App from 'containers/App';
 import configureStore from './configureStore';

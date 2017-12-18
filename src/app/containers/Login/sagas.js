@@ -27,7 +27,6 @@ function* checkAuthFlow(action) {
     let TOKEN = window.localStorage.getItem('id_token');
 
     if (!TOKEN) throw new Error('No Token!');
-    const response = yield validateAuthTokenApi.post({ token: TOKEN })
 
     yield put(authenticated())
 

@@ -11,7 +11,7 @@ import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router-dom';
 import MDSpinner from 'react-md-spinner';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import PasswordField from 'material-ui-password-field';
 
 import injectReducer from 'utils/injectReducer';
@@ -96,7 +96,7 @@ class Login extends React.Component {
           <form>
             <TextField floatingLabelText="Email" name="email" value={this.state.email} onChange={this.handleChangeData} />
             <PasswordField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleChangeData} />
-            <FlatButton label={loadingSpinner("login")} onClick={this.handleSubmit} disabled={!(this.state.email && this.state.password)} style={styles.button} />
+            <RaisedButton label={loadingSpinner("login")} onClick={this.handleSubmit} disabled={!(this.state.email && this.state.password)} style={styles.button} primary={true} />
             <p className="message">Not registered? <Link to="/signUp" >Create an account</Link></p>
           </form>
         </div>

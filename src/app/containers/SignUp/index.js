@@ -9,10 +9,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+import PageBase from 'components/PageBase';
 
 import styles from './styles';
 import saga from './sagas';
@@ -26,8 +27,15 @@ class SignUp extends React.Component {
     super();
 
     this.state = {
-
     }
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   }
 
   componentWillMount() {
@@ -36,17 +44,27 @@ class SignUp extends React.Component {
 
   render() {
 
-    const inputField = text => {
+    const inputField = (text) => {
       return (
-        <div></div>
+        <TextField floatingLabelText={toTitleCase(text)} name={text} onChange={this.handleChange} />
       );
     }
 
+    const toTitleCase = string => string.charAt(0).toUpperCase() + string.slice(1);
+
     return (
-      <div className="container">
-        <h1>Sign Up Here!</h1>
-      </div>
+      <PageBase title="SignUp" navigation="Application / SignUp" >
+        <div>
+          <h1>SignUp Here</h1>
+        </div>
+      </PageBase>
     );
+
+    // return (
+    //   <div>
+    //     <h1>SignUp Here!</h1>
+    //   </div>
+    // );
   }
 }
 

@@ -38,6 +38,9 @@ const config = {
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
 				loader: 'file-loader'
 			}, {
+				test: /\.ico$/,
+				loader: 'file-loader?name=[name].[ext]'
+			}, {
 	      test: /\.(jpg|png|gif)$/,
 	      loaders: [
 	        'file-loader',
